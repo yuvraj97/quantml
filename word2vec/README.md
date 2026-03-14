@@ -34,13 +34,17 @@ Gradient decomposition for center embedding v_c:
 
 ## Quick Start
 
+Requires **Python 3.9+**.
+
 ```bash
 pip install -r requirements.txt
-python train.py              # trains in ~30s, outputs to ./output/
-python analyze.py            # inspect what the model learned
+python train.py              # trains in ~30s on a modern laptop, outputs to ./output/
+python analyze.py            # inspect what the model learned (requires train.py output)
 python explore.py            # neighbor + analogy evolution over training
 python explore.py --interactive   # query the model yourself
 ```
+
+> `analyze.py` and `explore.py` read from `./output/` — run `train.py` first.
 
 ## Expected Output
 
@@ -51,29 +55,35 @@ Nearest neighbors (cosine, center embeddings):
       king → queen(0.91)  prince(0.88)  throne(0.84)  crown(0.83)  kingdom(0.82)
      queen → king(0.91)  princess(0.89)  prince(0.85)  throne(0.83)  crown(0.82)
        cat → dog(0.93)  rabbit(0.88)  bird(0.85)  fish(0.83)  animal(0.82)
+       dog → cat(0.93)  rabbit(0.87)  animal(0.85)  bird(0.83)  bear(0.80)
        man → woman(0.93)  boy(0.89)  father(0.87)  son(0.85)  girl(0.83)
+     woman → man(0.93)  girl(0.90)  mother(0.88)  daughter(0.86)  boy(0.83)
+       ... (15 words total)
 
 Analogies (a − b + c = ?):
     king − man + woman = queen ✓
+    queen − woman + man = king ✓
     prince − boy + girl = princess ✓
     father − man + woman = mother ✓
     son − boy + girl = daughter ✓
 ```
 
+> Exact similarity values are approximate — they can vary slightly across PyTorch versions and platforms even with the same random seed.
+
 > This is a **tiny toy training run** — 96 words, 8 dimensions, 15,000 steps.
 > It exists to teach how Word2Vec works, not to produce production embeddings.
-> Google's original Word2Vec used 3M words and 300 dimensions.
+> Google's original Word2Vec trained on a 6-billion-word corpus with a 3M-word vocabulary and 300 dimensions.
 
 ## File Guide
 
 | File | What it does |
 |------|-------------|
-| `train.py` | Core skip-gram training with full state recording. 484 lines, heavily commented. |
+| `train.py` | Core skip-gram training with full state recording. ~480 lines, heavily commented. |
 | `corpus.txt` | 545 hand-crafted sentences with deliberate parallel structures (king/queen, man/woman, etc.) so analogies emerge from a tiny corpus. |
 | `analyze.py` | Post-training analysis: similarity matrix, convergence curves, W vs W' comparison, corpus stats. Run with `--save-json` to export results. |
 | `explore.py` | Evolution reports (how neighbors and analogies change during training) + interactive REPL mode for querying the model. |
 | `requirements.txt` | Python dependencies (PyTorch, NumPy, scikit-learn). |
-| `sample_output/` | Pre-generated output files from a reference run so you can browse expected results without training first. |
+| `sample_output/` | Pre-generated metadata and analysis results (`run_metadata.json`, `loss_curve.json`, `similarity_matrix.json`, `weight_snapshots.json`) so you can inspect vocab, loss curves, and similarity data without training. Does not include the full `steps/` directory — run `train.py` for the complete output. |
 
 ## How the Corpus Was Designed
 
@@ -134,12 +144,12 @@ output/
 ├── step_index.json            list of recorded step numbers
 ├── embeddings_timeline.json   2D projections at every recorded step
 └── steps/
-    ├── 0.json                 full state at step 0 (~45 KB)
-    ├── 1.json                 full state at step 1
+    ├── 0.json                 initial state (weights only, ~20 KB)
+    ├── 1.json                 full state at step 1 (~45 KB)
     └── ...                    1,681 step files total (~73 MB)
 ```
 
-Each step file contains: W matrix, W' matrix, hidden vector, logits, probabilities, gradients, attractive/repulsive forces, cosine similarity, context rank.
+Each step file contains: center/context words, loss, W matrix, W' matrix, hidden vector, logits, probabilities, gradients (∂L/∂v_c, ∂L/∂u_o), attractive/repulsive forces, cosine similarity, context rank, context probability, and 2D PCA projections. Step 0 records only the random initial weights (most fields are null).
 
 ## Interactive Lesson
 
