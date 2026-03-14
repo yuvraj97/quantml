@@ -1,0 +1,671 @@
+# Word2Vec Training Corpus — Curated for Pedagogical Visualization
+#
+# Design: ~500 sentences with deliberate parallel structure so that
+# Skip-gram learns clean semantic clusters and analogy relationships.
+#
+# Target relationships after training:
+#   king ≈ queen, prince ≈ princess  (royalty cluster + gender axis)
+#   man ≈ woman, boy ≈ girl          (people cluster + gender axis)
+#   father ≈ mother, son ≈ daughter  (family cluster + gender axis)
+#   cat ≈ dog, lion ≈ wolf           (animal clusters)
+#   sun ≈ moon, river ≈ ocean        (nature clusters)
+#   king - man + woman ≈ queen       (analogy)
+#
+# Lines starting with # are ignored by the training script.
+
+# ============================================================
+# SECTION 1: ROYALTY — king/queen parallels
+# ============================================================
+the king sits on the throne
+the queen sits on the throne
+the king wears the crown
+the queen wears the crown
+the king rules the kingdom
+the queen rules the kingdom
+the king lives in the palace
+the queen lives in the palace
+the king lives in the castle
+the queen lives in the castle
+the king walks in the garden
+the queen walks in the garden
+the king rides the horse
+the queen rides the horse
+the king is wise and brave
+the queen is wise and brave
+the king is old and strong
+the queen is old and strong
+the king is proud and brave
+the queen is proud and kind
+the king fights with the knight
+the queen walks with the knight
+the brave king rules the kingdom
+the brave queen rules the kingdom
+the old king sits on the throne
+the old queen sits on the throne
+the wise king is strong
+the wise queen is strong
+the king and the knight ride the horse
+the queen and the knight ride the horse
+the king is in the castle
+the queen is in the castle
+the king is in the palace
+the queen is in the palace
+
+# ============================================================
+# SECTION 2: ROYALTY — prince/princess parallels
+# ============================================================
+the prince lives in the castle
+the princess lives in the castle
+the prince lives in the palace
+the princess lives in the palace
+the prince is young and brave
+the princess is young and brave
+the prince plays in the garden
+the princess plays in the garden
+the prince rides the horse
+the princess rides the horse
+the young prince is fast
+the young princess is fast
+the prince is the son of the king
+the princess is the daughter of the king
+the prince is the son of the queen
+the princess is the daughter of the queen
+the prince sits on the throne
+the princess sits on the throne
+the prince wears the crown
+the princess wears the crown
+the prince is strong and brave
+the princess is kind and brave
+the young prince runs fast
+the young princess runs fast
+
+# ============================================================
+# SECTION 3: PEOPLE — man/woman parallels
+# ============================================================
+the man walks in the city
+the woman walks in the city
+the man walks in the village
+the woman walks in the village
+the man lives in the house
+the woman lives in the house
+the man is strong and brave
+the woman is strong and brave
+the man is old and wise
+the woman is old and wise
+the old man sits by the river
+the old woman sits by the river
+the man runs in the field
+the woman runs in the field
+the man eats bread and fruit
+the woman eats bread and fruit
+the man drinks water and milk
+the woman drinks water and milk
+the man works in the city
+the woman works in the city
+the man walks to the garden
+the woman walks to the garden
+the young man is strong
+the young woman is strong
+the man sings in the village
+the woman sings in the village
+the man plays in the field
+the woman plays in the field
+the man sleeps in the house
+the woman sleeps in the house
+
+# ============================================================
+# SECTION 4: FAMILY — father/mother parallels
+# ============================================================
+the father loves the child
+the mother loves the child
+the father walks with the son
+the mother walks with the daughter
+the father walks with the child
+the mother walks with the child
+the father plays with the boy
+the mother plays with the girl
+the father plays with the child
+the mother plays with the child
+the father is strong and brave
+the mother is kind and gentle
+the father is old and wise
+the mother is old and wise
+the father lives in the house
+the mother lives in the house
+the father eats with the child
+the mother eats with the child
+the father sings to the baby
+the mother sings to the baby
+the father is proud of the son
+the mother is proud of the daughter
+the father is proud of the child
+the mother is proud of the child
+
+# ============================================================
+# SECTION 5: FAMILY — son/daughter parallels
+# ============================================================
+the son runs in the garden
+the daughter runs in the garden
+the son plays in the field
+the daughter plays in the field
+the son is young and fast
+the daughter is young and fast
+the son is brave and strong
+the daughter is brave and kind
+the son loves the father
+the daughter loves the mother
+the son walks with the father
+the daughter walks with the mother
+the young son plays with the boy
+the young daughter plays with the girl
+the son eats apple and bread
+the daughter eats apple and bread
+the son drinks milk
+the daughter drinks milk
+the son sleeps in the house
+the daughter sleeps in the house
+
+# ============================================================
+# SECTION 6: FAMILY — boy/girl parallels
+# ============================================================
+the boy plays in the garden
+the girl plays in the garden
+the boy runs in the field
+the girl runs in the field
+the boy is young and fast
+the girl is young and fast
+the boy is small and brave
+the girl is small and kind
+the boy eats fruit
+the girl eats fruit
+the boy drinks milk
+the girl drinks milk
+the boy plays with the cat
+the girl plays with the cat
+the boy plays with the dog
+the girl plays with the dog
+the boy climbs the tree
+the girl climbs the tree
+the boy swims in the river
+the girl swims in the river
+the boy sings and dances
+the girl sings and dances
+the young boy runs fast
+the young girl runs fast
+
+# ============================================================
+# SECTION 7: ANIMALS — cat/dog parallels
+# ============================================================
+the cat sleeps in the house
+the dog sleeps in the house
+the cat plays in the garden
+the dog plays in the garden
+the cat runs in the field
+the dog runs in the field
+the cat is small and fast
+the dog is small and fast
+the cat is a small animal
+the dog is a small animal
+the cat eats meat
+the dog eats meat
+the cat drinks milk
+the dog drinks milk
+the boy plays with the cat
+the boy plays with the dog
+the girl plays with the cat
+the girl plays with the dog
+the cat sits by the house
+the dog sits by the house
+the cat sleeps near the baby
+the dog sleeps near the baby
+the small cat runs fast
+the small dog runs fast
+the old cat sleeps in the sun
+the old dog sleeps in the sun
+the cat walks in the garden
+the dog walks in the garden
+
+# ============================================================
+# SECTION 8: ANIMALS — lion/wolf parallels
+# ============================================================
+the lion runs in the forest
+the wolf runs in the forest
+the lion is big and strong
+the wolf is big and strong
+the lion is a wild animal
+the wolf is a wild animal
+the lion hunts in the forest
+the wolf hunts in the forest
+the lion is fast and strong
+the wolf is fast and strong
+the lion fights the bear
+the wolf fights the bear
+the big lion is brave
+the big wolf is brave
+the lion sleeps in the dark forest
+the wolf sleeps in the dark forest
+the wild lion runs fast
+the wild wolf runs fast
+the lion is proud and strong
+the wolf is proud and strong
+
+# ============================================================
+# SECTION 9: ANIMALS — bird/fish parallels
+# ============================================================
+the bird lives near the river
+the fish lives in the river
+the bird is small and fast
+the fish is small and fast
+the bird swims in the ocean
+the fish swims in the ocean
+the bird is a small animal
+the fish is a small animal
+the boy sees the bird
+the boy sees the fish
+the girl sees the bird
+the girl sees the fish
+the bird is near the water
+the fish is in the water
+the bird is beautiful
+the fish is beautiful
+
+# ============================================================
+# SECTION 10: NATURE — sun/moon parallels
+# ============================================================
+the sun is bright
+the moon is bright
+the sun is in the sky
+the moon is in the sky
+the sun is big and bright
+the moon is big and bright
+the sun rises over the mountain
+the moon rises over the mountain
+the sun shines on the river
+the moon shines on the river
+the sun shines on the ocean
+the moon shines on the ocean
+the sun is warm and bright
+the moon is cold and bright
+the boy sees the sun
+the boy sees the moon
+the girl sees the sun
+the girl sees the moon
+the bright sun is in the sky
+the bright moon is in the sky
+the sun shines on the field
+the moon shines on the field
+the sun shines on the forest
+the moon shines on the forest
+
+# ============================================================
+# SECTION 11: NATURE — river/ocean parallels
+# ============================================================
+the river is big and dark
+the ocean is big and dark
+the fish swims in the river
+the fish swims in the ocean
+the river is near the mountain
+the ocean is near the mountain
+the river is cold and dark
+the ocean is cold and dark
+the man walks by the river
+the man walks by the ocean
+the woman walks by the river
+the woman walks by the ocean
+the river flows near the forest
+the ocean is near the forest
+the boy swims in the river
+the boy swims in the ocean
+
+# ============================================================
+# SECTION 12: NATURE — general
+# ============================================================
+the flower grows in the garden
+the tree grows in the forest
+the star is bright in the sky
+the rain falls on the field
+the rain falls on the garden
+the rain falls on the forest
+the mountain is big and dark
+the flower is small and beautiful
+the tree is big and old
+the star shines in the dark sky
+the wind is cold and fast
+the sky is bright and beautiful
+the forest is big and dark
+the field is big and bright
+the flower is near the river
+the tree is near the river
+the mountain is near the forest
+the star is in the dark sky
+the rain falls on the mountain
+the rain falls on the village
+
+# ============================================================
+# SECTION 13: FOOD — eat/drink parallels
+# ============================================================
+the man eats bread
+the woman eats bread
+the boy eats the apple
+the girl eats the apple
+the man drinks water
+the woman drinks water
+the boy drinks milk
+the girl drinks milk
+the father eats meat and bread
+the mother eats fruit and bread
+the child eats fruit
+the child drinks milk
+the man eats apple and bread
+the woman eats apple and bread
+the boy eats bread and fruit
+the girl eats bread and fruit
+the baby drinks milk
+the man eats meat
+the woman eats fruit
+the father drinks water
+the mother drinks water
+
+# ============================================================
+# SECTION 14: ACTIONS — run/walk parallels
+# ============================================================
+the man runs in the city
+the man walks in the city
+the woman runs in the village
+the woman walks in the village
+the boy runs fast
+the boy walks slow
+the girl runs fast
+the girl walks slow
+the horse runs fast
+the horse walks slow
+the dog runs in the field
+the dog walks in the field
+the cat runs in the garden
+the cat walks in the garden
+the lion runs fast
+the wolf runs fast
+the prince runs in the garden
+the prince walks in the garden
+
+# ============================================================
+# SECTION 15: ACTIONS — swim/fly parallels
+# ============================================================
+the bird flies in the sky
+the fish swims in the river
+the bird flies over the mountain
+the bird flies over the forest
+the fish swims in the ocean
+the boy swims in the river
+the girl swims in the river
+the bird flies over the field
+the fish swims in the water
+the man swims in the ocean
+the woman swims in the ocean
+
+# ============================================================
+# SECTION 16: ACTIONS — sing/dance parallels
+# ============================================================
+the boy sings in the village
+the girl sings in the village
+the boy dances in the village
+the girl dances in the village
+the man sings and dances
+the woman sings and dances
+the girl sings and dances
+the boy sings and dances
+the child sings and plays
+the child dances and plays
+the woman sings in the garden
+the man dances in the garden
+
+# ============================================================
+# SECTION 17: ACTIONS — fight/play contrasts
+# ============================================================
+the knight fights the lion
+the knight fights the wolf
+the knight fights the bear
+the king fights with the knight
+the prince fights the wolf
+the boy plays with the baby
+the girl plays with the baby
+the child plays in the garden
+the child plays in the field
+the boy plays in the village
+the girl plays in the village
+
+# ============================================================
+# SECTION 18: QUALITIES — big/strong and small/weak
+# ============================================================
+the king is big and strong
+the lion is big and strong
+the bear is big and strong
+the horse is big and strong
+the knight is big and strong
+the mountain is big and strong
+the cat is small and weak
+the rabbit is small and weak
+the fish is small and weak
+the baby is small and weak
+the mouse is small and weak
+the flower is small and beautiful
+the big horse runs fast
+the small cat runs fast
+the strong man fights the bear
+the strong knight fights the wolf
+the weak boy is slow
+the big lion is fast
+the small bird flies fast
+the strong wolf hunts in the forest
+
+# ============================================================
+# SECTION 19: QUALITIES — young/old
+# ============================================================
+the young prince is brave
+the old king is wise
+the young princess is kind
+the old queen is wise
+the young boy runs fast
+the old man walks slow
+the young girl plays in the garden
+the old woman sits by the river
+the young cat plays
+the old dog sleeps
+the young lion is fast
+the old bear sleeps
+the baby is young and small
+the father is old and strong
+the mother is old and wise
+the young son is fast
+the old father is wise
+
+# ============================================================
+# SECTION 20: QUALITIES — bright/dark
+# ============================================================
+the sun is bright
+the moon is bright
+the star is bright
+the sky is bright
+the forest is dark
+the ocean is dark
+the castle is dark
+the night is dark and cold
+the day is bright and warm
+the bright star shines in the sky
+the dark forest is big
+the bright sun is warm
+the dark river is cold
+the bright moon is in the sky
+
+# ============================================================
+# SECTION 21: CROSS-THEME — royalty + animals
+# ============================================================
+the king rides the big horse
+the queen rides the big horse
+the prince rides the fast horse
+the princess rides the horse
+the king hunts the lion in the forest
+the knight hunts the wolf in the forest
+the king hunts the bear in the forest
+the prince hunts the wolf
+the queen walks with the cat in the garden
+the princess plays with the small cat
+the king has a big dog
+the queen has a small cat
+the knight rides the horse to the castle
+
+# ============================================================
+# SECTION 22: CROSS-THEME — royalty + family
+# ============================================================
+the king is the father of the prince
+the queen is the mother of the princess
+the king is the father of the princess
+the queen is the mother of the prince
+the king is a proud father
+the queen is a kind mother
+the prince is the young son of the king
+the princess is the young daughter of the queen
+the king loves the prince
+the queen loves the princess
+the king loves the child
+the queen loves the child
+the old king is a wise father
+the old queen is a wise mother
+
+# ============================================================
+# SECTION 23: CROSS-THEME — people + animals
+# ============================================================
+the man walks the dog in the city
+the woman walks the dog in the village
+the boy plays with the cat
+the girl plays with the dog
+the man rides the horse in the field
+the woman rides the horse in the field
+the old man walks the old dog
+the boy sees the bird in the sky
+the girl sees the fish in the river
+the man hunts the bear in the forest
+the woman sees the rabbit in the garden
+the child plays with the small cat
+the child plays with the small dog
+
+# ============================================================
+# SECTION 24: CROSS-THEME — people + nature
+# ============================================================
+the man walks by the river
+the woman walks by the ocean
+the boy climbs the mountain
+the girl picks the flower in the garden
+the man sits under the tree
+the woman sits under the tree
+the boy swims in the cold river
+the man sees the star in the dark sky
+the woman sees the bright moon
+the child plays in the rain
+the father walks in the forest
+the mother walks in the garden
+the old man sits by the river under the tree
+the boy runs in the bright field
+the girl dances in the rain
+the woman picks the flower near the river
+
+# ============================================================
+# SECTION 25: CROSS-THEME — people + food
+# ============================================================
+the man eats bread by the river
+the woman eats fruit in the garden
+the boy eats the apple under the tree
+the girl drinks water by the river
+the father eats meat with the son
+the mother eats fruit with the daughter
+the child eats bread and drinks milk
+the baby drinks milk in the house
+the old man eats bread in the village
+the old woman drinks water in the house
+
+# ============================================================
+# SECTION 26: CROSS-THEME — nature + animals
+# ============================================================
+the lion sleeps under the tree
+the wolf runs by the river
+the bear climbs the mountain
+the bird sings in the tree
+the fish swims in the cold river
+the horse runs in the bright field
+the cat sleeps in the warm sun
+the dog plays in the rain
+the rabbit runs in the field
+the deer runs in the dark forest
+the bird flies over the river
+the bear sleeps in the dark forest
+the lion hunts by the river
+the wolf hunts near the mountain
+the bird sings in the bright sky
+
+# ============================================================
+# SECTION 27: EMOTIONAL CONTEXTS
+# ============================================================
+the happy boy plays in the garden
+the happy girl dances in the rain
+the sad boy sits by the river
+the sad girl sits in the house
+the brave knight fights the lion
+the brave prince fights the wolf
+the kind queen loves the child
+the kind mother loves the baby
+the gentle woman walks in the garden
+the gentle princess plays with the cat
+the proud king sits on the throne
+the proud father loves the son
+the wise old man walks slow
+the wise old woman sits by the river
+the happy child sings and dances
+the sad child sits in the dark house
+the brave man fights the bear
+the kind girl plays with the baby
+the happy father plays with the child
+the happy mother sings to the baby
+the proud queen sits on the throne
+the brave wolf hunts in the forest
+the kind woman loves the child
+the happy boy runs in the bright field
+the sad man walks in the dark forest
+the gentle mother sings to the child
+the wise king rules the kingdom
+the proud knight rides the horse
+the brave lion fights the bear
+the happy girl picks the flower
+
+# ============================================================
+# SECTION 28: ADDITIONAL REINFORCEMENT
+# ============================================================
+the king and queen live in the palace
+the prince and princess play in the garden
+the father and mother love the child
+the son and daughter play in the field
+the boy and girl run in the village
+the man and woman walk in the city
+the cat and dog sleep in the house
+the lion and wolf hunt in the forest
+the sun and moon shine in the sky
+the river and ocean are big and dark
+the bird flies and the fish swims
+the man eats and the woman drinks
+the boy runs and the girl dances
+the king rules and the queen rules
+the father is strong and the mother is kind
+the prince is brave and the princess is kind
+the lion is big and the cat is small
+the bear is strong and the rabbit is weak
+the sun is bright and the forest is dark
+the city is big and the village is small
+the horse runs fast in the field
+the knight rides the horse to the kingdom
+the old king and the young prince
+the old queen and the young princess
+the brave man and the wise woman
+the happy boy and the happy girl
+the dark forest and the bright field
+the cold river and the warm sun
+the big mountain and the small flower
+the old tree and the young flower
